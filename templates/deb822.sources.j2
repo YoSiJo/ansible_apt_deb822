@@ -1,22 +1,60 @@
 Types: {{ types | join(' ') }}
 URIs: {{ uris | join(' ') }}
-Suites:{{ suites | join(' ') }}
-{% if components is defined %}Components: {{ components | join(' ') }}{% endif %}
-{% if description is defined %}Description: {{ description }}{% endif %}
-{% if enabled is defined %}Enabled: {% if enabled %}yes{%else%}no{% endif %}{% endif %}
-{% if architectures is defined %}Architectures: {{ architectures | join(' ') }}{% endif %}
-{% if languages is defined %}Languages: {{ languages | join(' ') }}{% endif %}
-{% if targets is defined %}Targets: {{ targets | join(' ') }}{% endif %}
-{% if pdiffs is defined %}PDiffs: {% if pdiffs %}yes{%else%}no{% endif %}{% endif %}
-{% if hash is defined %}By-Hash: {% if hash %}yes{%else%}no{% endif %}{% endif %}
-{% if insecure is defined %}Allow-Insecure: {% if insecure %}yes{% else %}no{% endif %}{% endif %}
-{% if weak is defined %}Allow-Weak: {% if weak == true %}yes{% else %}no{% endif %}{% endif %}
-{% if downgrade is defined %}Allow-Downgrade-To-Insecure: {% if downgrade %}yes{% else %}no{% endif %}{% endif %}
-{% if trusted is defined %}Trusted: {% if trusted %}yes{% else %}no{% endif %}{% endif %}
-{% if signed_by is defined %}Signed-By: {{ signed_by }}{% endif %}
-{% if valid_valid_until is defined %}Check-Valid-Until: {% if valid_valid_until %}yes{% else %}no{% endif %}{% endif %}
-{% if valid_until_min is defined %}Valid-Until-Min: {{ valid_until_min }}{% endif %}
-{% if valid_until_max is defined %}Valid-Until-Max: {{ valid_until_max }}{% endif %}
-{% if check_date is defined %}Signed-By: {% if check_date %}yes{% else %}no{% endif %}{% endif %}
-{% if date_max_future is defined %}Date-Max-Future: {{ date_max_future }}{% endif %}
-{% if in_release_path is defined %}InRelease-Path: {{ in_release_path }}{% endif %}
+Suites: {{ suites | join(' ') }}
+{%- if components is defined %}
+Components: {{ components | join(' ') }}
+{% endif -%}
+{% if description is defined %}
+Description: {{ description }}
+{% endif -%}
+{%- if enabled is defined %}
+Enabled: {% if enabled %}yes{%else%}no{% endif %}
+{% endif -%}
+{%- if architectures is defined %}
+Architectures: {{ architectures | join(' ') }}
+{% endif -%}
+{%- if languages is defined %}
+Languages: {{ languages | join(' ') }}
+{% endif -%}
+{%- if targets is defined %}
+Targets: {{ targets | join(' ') }}
+{% endif -%}
+{%- if pdiffs is defined %}
+PDiffs: {% if pdiffs %}yes{%else%}no{% endif %}
+{% endif -%}
+{%- if hash is defined %}
+By-Hash: {% if hash %}yes{%else%}no{% endif %}
+{% endif -%}
+{% if insecure is defined %}
+Allow-Insecure: {% if insecure %}yes{% else %}no{% endif %}
+{% endif -%}
+{%- if weak is defined %}
+Allow-Weak: {% if weak == true %}yes{% else %}no{% endif %}
+{% endif -%}
+{%- if downgrade is defined %}
+Allow-Downgrade-To-Insecure: {% if downgrade %}yes{% else %}no{% endif %}
+{% endif -%}
+{%- if trusted is defined %}
+Trusted: {% if trusted %}yes{% else %}no{% endif %}
+{% endif -%}
+{%- if signed_by is defined %}
+Signed-By: {{ signed_by }}
+{% endif -%}
+{%- if valid_valid_until is defined %}
+Check-Valid-Until: {% if valid_valid_until %}yes{% else %}no{% endif %}
+{% endif -%}
+{%- if valid_until_min is defined %}
+Valid-Until-Min: {{ valid_until_min }}
+{% endif -%}
+{%- if valid_until_max is defined %}
+Valid-Until-Max: {{ valid_until_max }}
+{% endif -%}
+{%- if check_date is defined %}
+Check-Date: {% if check_date %}yes{% else %}no{% endif %}
+{% endif -%}
+{%- if date_max_future is defined %}
+Date-Max-Future: {{ date_max_future }}
+{% endif -%}
+{%- if in_release_path is defined %}
+InRelease-Path: {{ in_release_path }}
+{% endif -%}
