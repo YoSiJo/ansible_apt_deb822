@@ -1,2 +1,15 @@
 ---
-# tasks file for apt_deb822
+- name: Deploy deb822 repository file
+  template:
+    src: deb822.sources.j2
+    dest: "/etc/apt/sources.list.d/{{ filename }}.sources"
+  when: state | default( 'present' ) != "absent"
+
+- name: Remove deb822 repository file
+  file:
+    dest: "/etc/apt/sources.list.d/{{ filename }}.sources"
+  when: state | default( 'present' ) == "absent"
+
+- name: update_cache
+  apt:
+    update_cache: "{{ update_cache | default( true ) }}"
