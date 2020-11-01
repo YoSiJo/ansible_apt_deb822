@@ -1,7 +1,7 @@
 Types: {{ types | join(' ') }}
 URIs: {{ uris | join(' ') }}
 Suites: {{ suites | join(' ') }}
-{%- if components is defined %}
+{% if components is defined %}
 Components: {{ components | join(' ') }}
 {% endif -%}
 {% if description is defined %}
