@@ -1,0 +1,23 @@
+namespace: Waimanu
+name: apt_deb822
+version: 1.0.0
+readme: README.md
+description: Add or remove an APT repository in Ubuntu and Debian, as a sources file in DEB822 format.
+authors:
+    - "York-Simon Johannsen <ansible+apt_deb822@yosijo.de>"
+dependencies:
+license:
+    - AGPL-3.0-or-later
+tags:
+  - debian
+  - ubuntu
+  - apt
+  - deb822
+  - rfc822
+  - sources
+  - repo
+  - repository
+repository: https://codeberg.org/YoSiJo/ansible_apt_deb822
+documentation: https://codeberg.org/YoSiJo/ansible_apt_deb822/raw/branch/main/README.md
+homepage: https://codeberg.org/YoSiJo/ansible_apt_deb822
+issues: https://codeberg.org/YoSiJo/ansible_apt_deb822/issues
