@@ -3,6 +3,8 @@ apt_deb822
 
 Add or remove an APT repository in Ubuntu and [Debian](https://www.debian.org/), as a sources file in [DEB822](https://manpages.debian.org/bullseye/dpkg-dev/deb822.5.en.html) format.
 
+The orignial repository is hostet on https://codeberg.org/ and not an github. Only Ansible Galaxy don't support codeberg.
+
 Requirements
 ------------
 
