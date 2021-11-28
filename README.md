@@ -16,6 +16,7 @@ Role Variables
 | Variables                                   | Choices/Defaults                  | Comments                                                                                                |
 |---                                          |---                                |---                                                                                                      |
 | apt_deb822_filename (string)                |                                   | Define the filename under `/etc/apt/sources.list.d/`. The suffix `.sources` is appended automatically.  |
+| apt_deb822_mode (raw)                       | Default: `0644`                   | The permissions the resulting file.                                                                     |
 | apt_deb822_state (string)                   | Choices: `absent` or (`present`)  | A source string state.                                                                                  |
 | apt_deb822_options (dictionary)[required]   |                                   | Defines the repository configuration. More infos under the *apt_deb822_options* section.                |
 
