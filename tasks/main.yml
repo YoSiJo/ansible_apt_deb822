@@ -29,6 +29,7 @@
 - name: Remove deb822 repository file
   file:
     dest: "{{ apt_deb822_sources_dir }}/{{ apt_deb822_filename | default( apt_deb822_filename_fallback ) }}.sources"
+    state: absent
   when: apt_deb822_state | default( 'present' ) == "absent"
   tags:
     - repo
