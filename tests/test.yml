@@ -1,5 +1,20 @@
----
 - hosts: localhost
   remote_user: root
-  roles:
-    - apt_deb822
+  tasks:
+    - name: Include apt_deb822 role
+      ansible.builtin.include_role:
+        name: apt_deb822
+      vars:
+        apt_deb822_options:
+          Description: Debian default repository
+          Types:
+            - deb
+          URIs:
+            - http://ftp.debian.org/debian
+          Suites:
+            - stable
+            - stable-updates
+          Components:
+            - main
+            - contrib
+          PDiffs: true
