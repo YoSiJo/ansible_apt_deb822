@@ -3,6 +3,8 @@
 {% for key, value in apt_deb822_options.items() %}
 {{ key }}: {%- if value is boolean %}
   {{ 'Yes' if value else 'No'  -}}
+{% elif value is string %}
+  {{ value -}}
 {% elif value is iterable and (var is not string and var is not mapping) %}
   {{ value | join(' ') -}}
 {% endif +%}
