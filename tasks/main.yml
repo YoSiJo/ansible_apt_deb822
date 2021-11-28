@@ -10,7 +10,7 @@
           regex_replace('[^a-zA-Z0-9]+', '_') |
           regex_replace('_$', '')
         )
-      }}.sources
+      }}
   when: not apt_deb822_filename is defined
   tags:
     - repo
