@@ -1,6 +1,6 @@
 namespace: Waimanu
 name: apt_deb822
-version: 1.0.0
+version: 1.0.3
 readme: README.md
 description: Add or remove an APT repository in Ubuntu and Debian, as a sources file in DEB822 format.
 authors:
