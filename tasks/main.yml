@@ -1,15 +1,34 @@
----
+- name: Generate fallback filename
+  ansible.builtin.set_fact:
+    apt_deb822_filename_fallback: |-
+      {{
+        apt_deb822_filename |
+        default(
+          apt_deb822_options.URIs |
+          first |
+          regex_replace('([^@]+)$', '\1') |
+          regex_replace('[^a-zA-Z0-9]+', '_') |
+          regex_replace('_$', '')
+        )
+      }}.sources
+  when: not apt_deb822_filename is defined
+  tags:
+    - repo
+    - apt_deb822
+
 - name: Deploy deb822 repository file
   template:
     src: deb822.sources.j2
-    dest: "/etc/apt/sources.list.d/{{ filename }}.sources"
-  when: state | default( 'present' ) != "absent"
+    dest: "/etc/apt/sources.list.d/{{ apt_deb822_filename | default( apt_deb822_filename_fallback ) }}.sources"
+  when: apt_deb822_state | default( 'present' ) != "absent"
+  tags:
+    - repo
+    - apt_deb822
 
 - name: Remove deb822 repository file
   file:
-    dest: "/etc/apt/sources.list.d/{{ filename }}.sources"
-  when: state | default( 'present' ) == "absent"
-
-- name: update_cache
-  apt:
-    update_cache: "{{ update_cache | default( true ) }}"
+    dest: "/etc/apt/sources.list.d/{{ apt_deb822_filename | default( apt_deb822_filename_fallback ) }}.sources"
+  when: apt_deb822_state | default( 'present' ) == "absent"
+  tags:
+    - repo
+    - apt_deb822

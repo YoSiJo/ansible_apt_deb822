@@ -1,0 +1,12 @@
+# Markdownlint config file
+##
+## Repo
+## https://github.com/DavidAnson/markdownlint
+## Rules
+## https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+## Example config
+## https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+MD013:
+  line_length: 160
+default: true

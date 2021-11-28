@@ -1,0 +1,13 @@
+rules:
+  brackets: false
+  colons: false
+  document-start:
+    present: false
+  indentation:
+    spaces: 2
+  line-length:
+    max: 160
+  new-line-at-end-of-file: enable
+  new-lines:
+    type: unix
+  truthy: false
