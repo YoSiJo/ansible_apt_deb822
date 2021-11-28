@@ -1,2 +1,1 @@
----
-# defaults file for apt_deb822
+apt_deb822_mode_default: 0644
