@@ -18,20 +18,15 @@ galaxy_info:
   platforms:
   - name: Debian
     versions:
-    - 9
-    - 10
-    - 11
-    - 12
+      - bullseye
+      - buster
+      - stretch
+      - jessie
   - name: Ubuntu
     versions:
-    - 18.04
-    - 18.10
-    - 19.04
-    - 19.10
-    - 20.04
-    - 20.10
-    - 21.04
-    - 21.10
+      - bionic
+      - focal
+      - xenial
 
   galaxy_tags:
     - debian
