@@ -1,2 +1,1 @@
----
-# vars file for apt_deb822
+apt_deb822_sources_dir: /etc/apt/sources.list.d

@@ -19,8 +19,8 @@
 - name: Deploy deb822 repository file
   template:
     src: deb822.sources.j2
-    dest: "/etc/apt/sources.list.d/{{ apt_deb822_filename | default( apt_deb822_filename_fallback ) }}.sources"
     mode: "{{ apt_deb822_mode | default ( '0644' ) }}"
+    dest: "{{ apt_deb822_sources_dir }}/{{ apt_deb822_filename | default( apt_deb822_filename_fallback ) }}.sources"
   when: apt_deb822_state | default( 'present' ) != "absent"
   tags:
     - repo
@@ -28,7 +28,6 @@
 
 - name: Remove deb822 repository file
   file:
-    dest: "/etc/apt/sources.list.d/{{ apt_deb822_filename | default( apt_deb822_filename_fallback ) }}.sources"
   when: apt_deb822_state | default( 'present' ) == "absent"
   tags:
     - repo
