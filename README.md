@@ -1,29 +1,27 @@
-apt_deb822
-=========
+# apt_deb822
 
-Add or remove an APT repository in Ubuntu and [Debian](https://www.debian.org/), as a sources file in [DEB822](https://manpages.debian.org/bullseye/dpkg-dev/deb822.5.en.html) format.
+Add or remove an APT repository in Ubuntu and [Debian](https://www.debian.org/),
+as a sources file in [DEB822](https://manpages.debian.org/bullseye/dpkg-dev/deb822.5.en.html) format.
 
-The orignial repository is hostet on https://codeberg.org/ and not an github. Only Ansible Galaxy don't support codeberg.
+The orignial repository is hostet on [codeberg.org](https://codeberg.org/) and not an github. Only Ansible Galaxy don't support codeberg.
 
-Requirements
-------------
+## Requirements
 
 Nothing.
-The role is intended as an alternative to the [ansible.builtin.apt_repository](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html) module.
+The role is intended as an alternative to the
+[ansible.builtin.apt_repository](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html) module.
 In the long run, it should take over as much as possible from this and extend the capabilities with the deb822 possibilities.
 
-Role Variables
---------------
+## Role Variables
 
-| Variables                                   | Choices/Defaults                  | Comments                                                                                                |
-|---                                          |---                                |---                                                                                                      |
-| apt_deb822_filename (string)                |                                   | Define the filename under `/etc/apt/sources.list.d/`. The suffix `.sources` is appended automatically.  |
-| apt_deb822_mode (raw)                       | Default: `0644`                   | The permissions the resulting file.                                                                     |
-| apt_deb822_state (string)                   | Choices: `absent` or (`present`)  | A source string state.                                                                                  |
-| apt_deb822_options (dictionary)[required]   |                                   | Defines the repository configuration. More infos under the *apt_deb822_options* section.                |
+| Variables                                 | Choices/Defaults                  | Comments                                                                |
+|---                                        |---                                |---                                                                      |
+| apt_deb822_filename (string)              |                                   | Define the filename . The suffix `.sources` is appended automatically.  |
+| apt_deb822_mode (raw)                     | Default: `0644`                   | The permissions the resulting file.                                     |
+| apt_deb822_state (string)                 | Choices: `absent` or (`present`)  | A source string state.                                                  |
+| apt_deb822_options (dictionary/required\]  |                                   | Defines the repository settings.                                        |
 
-apt_deb822_options
-------------------
+## apt_deb822_options
 
 | Options           | Type    | Comments                                |
 |---                |---      |---                                      |
@@ -45,32 +43,32 @@ apt_deb822_options
 | Date-Max-Future   | intager | Defined the Max-FutureTime in second    |
 | InRelease-Path    | string  | Set the relativ path to InRelease-file  |
 
-Example Playbook
-----------------
+## Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      tasks:
-        - name: Include apt_deb822 role
-          ansible.builtin.include_role:
-            name: apt_deb822
-          vars:
-            apt_deb822_options:
-              Description: Debian default repository
-              Types:
-                - deb
-              URIs:
-                - http://ftp.debian.org/debian
-              Suites:
-                - stable
-                - stable-updates
-              Components:
-                - main
-                - contrib
-              PDiffs: true
+```yaml
+- hosts: servers
+  tasks:
+    - name: Include apt_deb822 role
+      ansible.builtin.include_role:
+        name: apt_deb822
+      vars:
+        apt_deb822_options:
+          Description: Debian default repository
+          Types:
+            - deb
+          URIs:
+            - http://ftp.debian.org/debian
+          Suites:
+            - stable
+            - stable-updates
+          Components:
+            - main
+            - contrib
+          PDiffs: true
+```
 
-License
--------
+## License
 
 AGPL v3 or later
