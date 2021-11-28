@@ -4,10 +4,10 @@ version: 1.0.0
 readme: README.md
 description: Add or remove an APT repository in Ubuntu and Debian, as a sources file in DEB822 format.
 authors:
-    - "York-Simon Johannsen <ansible+apt_deb822@yosijo.de>"
+  - "York-Simon Johannsen <ansible+apt_deb822@yosijo.de>"
 dependencies:
 license:
-    - AGPL-3.0-or-later
+  - AGPL-3.0-or-later
 tags:
   - debian
   - ubuntu
