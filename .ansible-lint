@@ -1,20 +1,2 @@
-warn_list:  # or 'skip_list' to silence them completely
-  - command-instead-of-shell  # Use shell only when shell functionality is required
-  - deprecated-local-action
-  - experimental  # all rules tagged as experimental
-  - load-failure  # Failed to load or parse file
-  - meta-incorrect  # meta/main.yml default values should be changed
-  - meta-no-tags  # Tags must contain lowercase letters and digits only
-  - no-handler  # Tasks that run when changed should likely be handlers
-  - no-jinja-when  # No Jinja2 in when
-  - package-latest  # Package installs should not use latest
-skip_list:
-  - unnamed-task  # All tasks should be named
-  - meta-no-info  # meta/main.yml should contain relevant info
-  - no-tabs  # Most files should not contain tabs
-  - yaml  # Violations reported by yamllint
-  - risky-shell-pipe  # Shells that use pipes should set the pipefail option
-  - risky-file-permissions
-  - package-latest
-  - git-latest  # Git checkouts must contain explicit version
-  - var-spacing  # Variables should have spaces before and after:  {{ var_name }}
+loop_var_prefix: "{role}_"
+use_default_rules: true
